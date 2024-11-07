@@ -44,12 +44,13 @@ std::string RealToString(
 	// A prefix space is added if value is positive (or zero)
 	std::stringstream stream{
 		decimals ?
-		std::format("{: .{}f}", value, std::min<uint8_t>(decimals, max_digits)) :
+		std::format("{: .{}}", value, std::min<uint8_t>(decimals, max_digits)) :
 		std::format("{: }", value)
 	};
 	return stream.str();
 };
 
+#if __STDCPP_FLOAT128_T__ == 1
 // Currently no support in C++23 for std::cout of std::float128_t
 std::ostream& operator<<(
 	std::ostream& os,
@@ -57,6 +58,7 @@ std::ostream& operator<<(
 {
 	return os << RealToString(value, std::cout.precision());
 };
+#endif
 
 constexpr Real pi = std::numbers::pi_v<Real>;
 

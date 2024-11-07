@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
 		{
 			return std::pow(x, i);
 		};
-		std::cout << "x^" << i+0<< ": " << Quadrature::Lobatto(func_capture, 0, 1) << "\n";
+		std::cout << "x^" << i + 0 << ": " << Quadrature::Lobatto(func_capture, 0, 1) << "\n";
 	};
 
 };
