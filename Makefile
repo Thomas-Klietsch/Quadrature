@@ -12,10 +12,7 @@ main:
 	$(CC) $(CCW) -o ./bin/main ./src/main.cpp
 	./bin/main
 	
-all: clean run
+all: clean main
 
 clean:
 	rm -rf ./bin/main
-
-run: main.cpp
-	./bin/main
